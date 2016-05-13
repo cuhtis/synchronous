@@ -1,1 +1,1 @@
-web: node synchronous/bin/www
+web: node bin/www
