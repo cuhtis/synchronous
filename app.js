@@ -1,4 +1,5 @@
 var express = require('express');
+var http = require('http');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -11,7 +12,24 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-app.io = null;
+app.server = http.createServer(app);
+app.io = require('socket.io')(app.server);
+
+app.io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.on('chat message', function(msg){
+    app.io.emit('chat message', msg);
+  });
+  socket.on('play', function(msg){
+    app.io.emit('play', msg);
+  });
+  socket.on('pause', function(msg){
+    app.io.emit('pause', msg);
+  });
+  socket.on('seek', function(msg){
+    app.io.emit('seek', msg);
+  });
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
