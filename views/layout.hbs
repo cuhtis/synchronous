@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    {{#if title}}
     <title>{{title}}</title>
+    {{else}}
+    <title>Synchronous</title>
+    {{/if}}
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
