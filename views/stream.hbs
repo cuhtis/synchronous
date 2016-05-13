@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", function(event) {
   var socket = io();
   var audio = document.getElementById("audioplayer");
+  var seeking = false;
 
   // Listen events
   socket.on('play', function(msg) {
@@ -21,8 +22,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audio.addEventListener("pause", function(event) {
     socket.emit("pause");
   });
+  audio.addEventListener("seeking", function(event) {
+    seeking = true;
+  });
   audio.addEventListener("seeked", function(event) {
-    socket.emit("seek", audio.currentTime);
+    if (seeking)
+      socket.emit("seek", audio.currentTime);
+    seeking = false;
   });
 });
 </script>

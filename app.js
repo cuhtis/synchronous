@@ -21,13 +21,16 @@ app.io.on('connection', function(socket){
     app.io.emit('chat message', msg);
   });
   socket.on('play', function(msg){
-    app.io.broadcast('play', msg);
+    console.log('play');
+    socket.broadcast.emit('play', msg);
   });
   socket.on('pause', function(msg){
-    app.io.broadcast('pause', msg);
+    console.log('pause');
+    socket.broadcast.emit('pause', msg);
   });
   socket.on('seek', function(msg){
-    app.io.broadcast('seek', msg);
+    console.log('seek');
+    socket.broadcast.emit('seek', msg);
   });
 });
 
