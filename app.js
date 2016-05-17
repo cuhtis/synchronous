@@ -17,6 +17,7 @@ app.io = require('socket.io')(app.server);
 
 app.io.on('connection', function(socket){
   console.log('a user connected');
+  app.io.emit('server message', 'Someone has connected...');
   socket.on('chat message', function(msg){
     app.io.emit('chat message', msg);
   });
@@ -31,6 +32,10 @@ app.io.on('connection', function(socket){
   socket.on('seek', function(msg){
     console.log('seek');
     socket.broadcast.emit('seek', msg);
+  });
+  socket.on('disconnect', function(msg){
+    console.log('disconnect');
+    socket.broadcast.emit('server message', 'Someone has disconnected...');
   });
 });
 

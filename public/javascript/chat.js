@@ -11,6 +11,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     m.val('');
     return false;
   });
+  socket.on('server message', function(msg){
+    messages.append($('<li class="server">').text("[server]: " + msg));
+    messages.scrollTop(messages.prop("scrollHeight"));
+  });
   socket.on('chat message', function(msg){
     messages.append($('<li>').text(msg));
     messages.scrollTop(messages.prop("scrollHeight"));

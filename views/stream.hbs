@@ -1,8 +1,7 @@
 <script src="javascript/stream.js"></script>
+<link rel='stylesheet' href='/stylesheets/stream.css' />
 
-<audio id="audioplayer" autoplay controls>
-    <source src="/music.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
-<br>
-<iframe src="/chat" height="400">
+<div id="main">
+  <iframe src="/chat" id="chatbox"></iframe>
+  <iframe src="/player" id="musicbox"></iframe>
+</div>

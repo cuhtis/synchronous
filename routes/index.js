@@ -10,6 +10,9 @@ router.get('/chat', function(req, res) {
   res.render('chat');
 });
 
+router.get('/player', function(req, res) {
+  res.render('player');
+});
 
 router.get('/stream', function(req, res) {
   res.render('stream');
