@@ -15,32 +15,8 @@ var app = express();
 app.server = http.createServer(app);
 app.io = require('socket.io')(app.server);
 
-var id = 0;
-app.io.on('connection', function(socket){
-  var myId = id++;
-  var myName = "guest" + myId;
-  console.log('a user connected');
-  app.io.emit('server message', myName + ' has connected.');
-  socket.on('chat message', function(msg){
-    app.io.emit('chat message', myName + ': ' + msg);
-  });
-  socket.on('play', function(msg){
-    console.log('play');
-    socket.broadcast.emit('play', msg);
-  });
-  socket.on('pause', function(msg){
-    console.log('pause');
-    socket.broadcast.emit('pause', msg);
-  });
-  socket.on('seek', function(msg){
-    console.log('seek');
-    socket.broadcast.emit('seek', msg);
-  });
-  socket.on('disconnect', function(msg){
-    console.log('disconnect');
-    socket.broadcast.emit('server message', myName + ' has disconnected.');
-  });
-});
+require('./io/chat')(app);
+require('./io/music')(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

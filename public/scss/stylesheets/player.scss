@@ -4,13 +4,16 @@
 }
 
 #songlist {
-
+  flex-grow: 1;
+  order: 1;
 }
 
 #currentsong {
-
+  flex-grow: 3;
+  order: 2;
 }
 
 #controls {
-
+  flex-grow: 1;
+  order: 3;
 }
