@@ -15,11 +15,14 @@ var app = express();
 app.server = http.createServer(app);
 app.io = require('socket.io')(app.server);
 
+var id = 0;
 app.io.on('connection', function(socket){
+  var myId = id++;
+  var myName = "guest" + myId;
   console.log('a user connected');
-  app.io.emit('server message', 'Someone has connected...');
+  app.io.emit('server message', myName + ' has connected.');
   socket.on('chat message', function(msg){
-    app.io.emit('chat message', msg);
+    app.io.emit('chat message', myName + ': ' + msg);
   });
   socket.on('play', function(msg){
     console.log('play');
@@ -35,7 +38,7 @@ app.io.on('connection', function(socket){
   });
   socket.on('disconnect', function(msg){
     console.log('disconnect');
-    socket.broadcast.emit('server message', 'Someone has disconnected...');
+    socket.broadcast.emit('server message', myName + ' has disconnected.');
   });
 });
 

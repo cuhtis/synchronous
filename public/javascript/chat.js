@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var chatForm = $('#chat-form');
   var m = $('#m');
   var messages = $('#messages');
-  messages.height($(window).height() - chatForm.height() - 7);
+  messages.height(chatForm.parent().height() - chatForm.height() - 7);
 
   chatForm.submit(function(){
     if(m.val() == "") return false;
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     return false;
   });
   socket.on('server message', function(msg){
-    messages.append($('<li class="server">').text("[server]: " + msg));
+    messages.append($('<li class="server">').text(msg));
     messages.scrollTop(messages.prop("scrollHeight"));
   });
   socket.on('chat message', function(msg){

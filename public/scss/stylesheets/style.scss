@@ -7,8 +7,12 @@ html, body {
     height:100%;
 }
 
+* {
+  margin: 0; padding: 0; box-sizing: border-box; 
+}
+
 body {
-			font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 13px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 .enter {
@@ -80,7 +84,7 @@ body {
 	text-align:center;
 }
 
-h1{
+h1 {
 	 @media (min-width: 1600px) { 
 		font-size: 20px;
 	}
@@ -90,12 +94,9 @@ h1{
 }
 
 /* visual styles */
-body{
+body {
     margin:0;
-    font-family:Damascus;
-    font-size:28px;
     /*line-height:100px;*/
-	color:#A8A8A8;
     text-align:center;
 }
 section {

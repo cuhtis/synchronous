@@ -1,0 +1,39 @@
+form {
+  padding: 3px; 
+  position: relative; 
+  bottom: 0; 
+  width: 100%; 
+
+  input { 
+    border: 0; 
+    padding: 10px; 
+    width: 70%; 
+    margin-right: .5%; 
+  }
+                            
+  button { 
+    width: 29%; 
+    border: none; 
+    padding: 10px; 
+  }
+} 
+
+#messages { 
+  list-style-type: none; 
+  margin: 0; 
+  padding: 0; 
+  position: relative;
+  overflow-y: scroll;
+
+  li {
+    text-align: left;
+    padding: 5px 10px; 
+  }
+  
+  li:nth-child(odd) { 
+    background: #eee; 
+  }
+  .server {
+    color: maroon;
+  }
+}                                          
