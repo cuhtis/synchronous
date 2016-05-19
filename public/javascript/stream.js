@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function(event) {
-  var socket = io();
   var audio = document.getElementById("audioplayer");
   var seeking = false;
 

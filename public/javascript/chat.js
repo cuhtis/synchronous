@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function(event) {
-  var socket = io();
   var chatForm = $('#chat-form');
   var m = $('#m');
   var messages = $('#messages');
