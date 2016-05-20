@@ -1,4 +1,42 @@
-form {
+#messagebox {
+  flex-grow: 1;
+  margin-bottom: 2%;
+  border: 1px solid Silver;
+
+  #messages { 
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+    position: relative;
+    overflow-y: scroll;
+
+    li {
+      text-align: left;
+      padding: 5px 10px; 
+    }
+  
+    li:nth-child(odd) { 
+      background: #eee; 
+    }
+    
+    .server {
+      color: maroon;
+    }
+  }
+  
+}  
+
+#roominfobox {
+  height: 10%;
+  border: 1px solid Silver;
+
+  * {
+    display: inline-block;
+    margin: auto;
+  }
+}
+  
+.messageform {
   padding: 3px; 
   position: relative; 
   bottom: 0; 
@@ -12,28 +50,9 @@ form {
   }
                             
   button { 
-    width: 29%; 
+    width: 25%; 
     border: none; 
+    margin: auto;
     padding: 10px; 
   }
 } 
-
-#messages { 
-  list-style-type: none; 
-  margin: 0; 
-  padding: 0; 
-  position: relative;
-  overflow-y: scroll;
-
-  li {
-    text-align: left;
-    padding: 5px 10px; 
-  }
-  
-  li:nth-child(odd) { 
-    background: #eee; 
-  }
-  .server {
-    color: maroon;
-  }
-}                                          

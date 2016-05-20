@@ -1,9 +1,19 @@
 <script src="/javascript/chat.js"></script>
 <link rel='stylesheet' href='/stylesheets/chat.css' />
 
-<ul id="messages">
-</ul>
+<div id="messagebox">
+  <ul id="messages">
+  </ul>
 
-<form id="chat-form" action="">
-  <input id="m" placeholder="Click here to message." autocomplete="off" /><button>Send</button>
-</form>
+  <form id="chat-form" class="messageform" action="">
+    <input id="m" placeholder="Click here to message." autocomplete="off" />
+    <button>Send</button>
+  </form>
+</div>
+
+<div id="roominfobox" class="container-row">
+  <form id="room-form" class="messageform" action="">
+    <input id="roomname" placeholder="Room name." autocomplete="off" />
+    <button>Join</button>
+  </form>
+</div>
